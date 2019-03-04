@@ -27,7 +27,6 @@ import javax.persistence.PersistenceContext;
         DbUnitTestExecutionListener.class
 })
 @Transactional
-@IfProfileValue(name = "run-tests", value = "true")
 public abstract class BaseTest {
 
     private static final String[] DB_UNIT_SET_UP = {"",

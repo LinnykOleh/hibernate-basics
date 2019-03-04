@@ -16,8 +16,9 @@ import org.springframework.test.annotation.Commit;
  */
 @DatabaseSetup("/data.xml")
 public class DirtyCheckingTest extends BaseTest {
+
     @Test
-    @Commit
+    @Commit // Flush будет на коммите
     public void dirtyChecking() {
         Account account = getSession().get(Account.class, 10);
         account.setAmount(100);

@@ -24,4 +24,10 @@ public class Account {
     @JoinColumn(name = "id_client")
     private Client client;
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                '}';
+    }
 }
