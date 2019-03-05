@@ -2,8 +2,8 @@ package com.jeeconf.hibernate.basics.dirtychecking;
 
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.jeeconf.hibernate.basics.BaseTest;
-import com.jeeconf.hibernate.basics.entity.Account;
 import com.jeeconf.hibernate.basics.entity.Client;
+import com.jeeconf.hibernate.basics.entity.Account;
 import org.hibernate.ScrollMode;
 import org.hibernate.ScrollableResults;
 import org.hibernate.SessionFactory;
@@ -31,8 +31,9 @@ public class DirtyCheckingTest extends BaseTest {
     public void dirtyCheckingDisableForQuery() {
         // add @Immutable to Client
         Client client = getSession().get(Client.class, 10);
+
         // for queries it is also possible
-        // getSession().createQuery("select c from Client c").setReadOnly(true).list();
+         getSession().createQuery("select c from Client c").setReadOnly(true).list();
     }
 
     @Test

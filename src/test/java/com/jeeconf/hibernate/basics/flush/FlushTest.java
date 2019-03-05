@@ -47,7 +47,20 @@ public class FlushTest extends BaseTest {
     @Commit
     public void updateAllFields() {
         Client client = getSession().get(Client.class, 10);
+        /*select *  from Client  where id_client=10 */
+
         client.setAge(30);
+        /*
+        Апдэйтятьс все поля, хотя обновили только age
+        Приводятся бд к тому состоянию, которое в сессии, чтобы было консистентность
+
+        update Client
+            set
+                age=30,
+                name='John'
+            where
+                id_client=10
+         */
     }
 
 }
